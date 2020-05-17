@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simple Dash</title>
+</head>
+
+<link href="css/video-js.css" rel="stylesheet">
+
+<body>
+
+    <div class="container">
+        <section class="starter-template">
+            <video id=example-video width=600 height=300 class="video-js vjs-default-skin" controls>
+            </video>
+            <form id=load-url>
+            <label> Video URL: <input id=url type=url value="https://s3.amazonaws.com/_bc_dml/example-content/sintel_dash/sintel_vod.mpd"> </label> <br>
+            <button type=submit>Load</button>
+            </form>
+        </section>    
+    </div>
+
+
+    <script src="js/video.js"></script>
+    <script src="js/dash.all.debug.js"></script>
+    <script src="js/videojs-dash.js"></script>
+
+    <script>
+        (function(videojs) {
+            var player = window.player = videojs('example-video');
+            var url = document.getElementById('url');
+
+            var loadUrl = document.getElementById('load-url');
+            loadUrl.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var src = {
+                src: url.value,
+                type: 'application/dash+xml'
+            };
+            player.src(src);
+            return false;
+        });
+
+            player.src({
+                src: url.value,
+                type: 'application/dash+xml'
+            });
+        })(window.videojs);
+        </script>
+
+    </body>
+</html>
