@@ -16,6 +16,6 @@ To run the server, first run `npm install` to install all dependencies and then 
 
 ### Additional Info
 
-To more closely monitor the size of each segment being transferred, I recommend allowing the server to statically server the video file by placing the .mpd and all it's references (.mp4s) into a subdirectory (/public/media/) local to the server. This will allow you to see the size of the partial segments transferred within the log.
+To more closely monitor the size of each segment being transferred, I recommend allowing the server to statically server the video file by placing the .mpd and all it's references (.mp4s) into a subdirectory (/public/media/) local to the server.
 
-This should be useful for demonstration purposes.
+This will allow you to see the size of the partial segments transferred within the log, which should be useful for demonstration purposes.
